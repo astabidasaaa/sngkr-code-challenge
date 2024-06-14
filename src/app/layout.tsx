@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Lato, Prata } from "next/font/google";
 import "./globals.css";
+import DesktopNavbar from "@/components/desktopNavbar";
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/providers/themeProviders";
 
 const inter = Inter({ subsets: ["latin"] });
+const prata = Prata({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-prata",
+});
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+  variable: "--font-lato",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +29,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${prata.variable} ${lato.variable}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <DesktopNavbar />
+          <main className="relative flex flex-col items-center justify-start w-full">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
