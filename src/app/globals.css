@@ -71,6 +71,27 @@ a {
   font-family: var(--font-lato);
 }
 
-/* nav a {
-  @apply text-primary text-xl;
-} */
+h1 {
+  @apply text-4xl md:text-5xl mb-8 md:leading-relaxed;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl mb-6;
+}
+
+h3 {
+  @apply text-xl md:text-3xl mb-4;
+}
+
+h4 {
+  @apply text-lg md:text-xl font-bold;
+}
+
+p {
+  @apply text-lg md:text-xl;
+}
+
+.culture br {
+  @apply block mt-4;
+  content: "";
+}
