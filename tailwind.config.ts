@@ -19,6 +19,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        prata: ["var(--font-prata)"],
+        lato: ["var(--font-lato)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
