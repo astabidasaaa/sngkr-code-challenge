@@ -35,30 +35,29 @@ const DesktopNavbar = () => {
         showBackground ? "bg-background" : "bg-transparent sm:translate-y-16"
       } transition-all duration-300`}
     >
-      <Link
-        href="/"
-        className="w-full flex flex-row justify-between items-center py-2 sm:py-4"
-      >
-        <MainLogo
-          className={`${
-            showBackground
-              ? "w-20 h-8 md:w-32 md:h-10"
-              : "w-24 h-12 md:w-36 md:h-14"
-          } transition-all duration-500 fill-primary/60 stroke-primary/60`}
-        />
-      </Link>
-      <nav className="hidden sm:flex flex-row gap-16">
-        <Button asChild variant="link" className="text-lg p-0">
-          <Link href="/about-us">About</Link>
-        </Button>
-        <Button asChild variant="link" className="text-lg p-0">
-          <Link href="/products">Products</Link>
-        </Button>
-        <Button asChild variant="link" className="text-lg p-0">
-          <Link href="/teams">Teams</Link>
-        </Button>
-        <ModeToggle />
-      </nav>
+      <div className="w-full flex flex-row justify-between items-center py-2 sm:py-4">
+        <Link href="/">
+          <MainLogo
+            className={`${
+              showBackground
+                ? "w-20 h-8 md:w-32 md:h-10"
+                : "w-24 h-12 md:w-36 md:h-14"
+            } transition-all duration-500 fill-primary/60 stroke-primary/60`}
+          />
+        </Link>
+        <nav className="hidden sm:flex flex-row gap-16">
+          <Button asChild variant="link" className="text-lg p-0">
+            <Link href="/about-us">About</Link>
+          </Button>
+          <Button asChild variant="link" className="text-lg p-0">
+            <Link href="/products">Products</Link>
+          </Button>
+          <Button asChild variant="link" className="text-lg p-0">
+            <Link href="/teams">Teams</Link>
+          </Button>
+          <ModeToggle />
+        </nav>
+      </div>
     </header>
   );
 };
