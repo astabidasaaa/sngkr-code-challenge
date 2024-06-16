@@ -3,7 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Document as RichTextDocument } from "@contentful/rich-text-types";
 
 type TRichText = {
-  document: RichTextDocument | undefined;
+  document: RichTextDocument | undefined | null;
 };
 
 const RichText = ({ document }: TRichText) => {
