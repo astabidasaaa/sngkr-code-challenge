@@ -4,6 +4,7 @@ import "./globals.css";
 import DesktopNavbar from "@/components/desktopNavbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/providers/themeProviders";
+import PageTransition from "@/components/pageTransition";
 
 const inter = Inter({ subsets: ["latin"] });
 const prata = Prata({
@@ -37,9 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <DesktopNavbar />
-          <main className="relative flex flex-col items-center justify-start w-full">
-            {children}
-          </main>
+          <PageTransition>{children}</PageTransition>
           <Footer />
         </ThemeProvider>
       </body>
