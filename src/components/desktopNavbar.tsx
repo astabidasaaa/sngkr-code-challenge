@@ -47,10 +47,10 @@ const DesktopNavbar = () => {
         </Link>
         <nav className="hidden sm:flex flex-row gap-16">
           <Button asChild variant="link" className="text-lg p-0">
-            <Link href="/about-us">About</Link>
+            <Link href="/products">Products</Link>
           </Button>
           <Button asChild variant="link" className="text-lg p-0">
-            <Link href="/products">Products</Link>
+            <Link href="/about-us">About</Link>
           </Button>
           <Button asChild variant="link" className="text-lg p-0">
             <Link href="/teams">Teams</Link>
