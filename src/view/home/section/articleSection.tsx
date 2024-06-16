@@ -1,7 +1,7 @@
 import React from "react";
 import { client } from "@/utils/contentful";
 import { TypeBlogFields } from "@/types/contentful";
-import RichText from "../components/richText";
+import RichText from "../../../components/richText";
 
 export const fetchArticle = async () => {
   try {
