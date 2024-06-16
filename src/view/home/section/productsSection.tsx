@@ -61,14 +61,13 @@ const ProductsSection = async () => {
                 key={product.slug}
               >
                 <Link href={`/products/${product.slug}`} className="group">
-                  <div className="relative w-[320px] md:w-[400px] h-[320px] md:h-[360px] flex justify-start items-end">
+                  <div className="relative w-[320px] md:w-[400px] h-[320px] md:h-[400px] flex justify-start items-end">
                     <div className="size-56 md:size-80 absolute top-0 right-0 z-0 select-none rounded-full overflow-hidden">
                       <Image
                         src={`https:${product.image.fields.file.url}`}
                         alt={`${product.name} image`}
                         width={360}
                         height={360}
-                        // placeholder={<div></div>}
                         placeholder={`data:image/svg+xml;base64,${toBase64(
                           shimmer(320, 320)
                         )}`}
@@ -76,12 +75,12 @@ const ProductsSection = async () => {
                       />
                     </div>
                     <div className="flex flex-col gap-2 justify-start items-start w-full z-10">
-                      <span className="max-w-[240px] text-lg font-prata select-none">
+                      <span className="max-w-[240px] text-xl font-prata select-none">
                         {product.name}
                       </span>
-                      <p className="max-w-[240px] font-light select-none">
+                      <span className="max-w-[240px] font-light font-lato text-lg select-none">
                         {product.shortDescription}
-                      </p>
+                      </span>
                       <Button
                         variant="link"
                         className="max-w-[240px] p-0 select-none"
