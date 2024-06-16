@@ -1,10 +1,18 @@
-import type { Asset, Entry, EntryFields } from "contentful";
+import type {
+  Asset,
+  AssetFile,
+  AssetLink,
+  Entry,
+  EntryFieldTypes,
+  EntryFields,
+  Link,
+} from "contentful";
 
 export interface TypeProductsFields {
   contentTypeId: "products";
   fields: {
     name: EntryFields.Symbol;
-    image: Asset;
+    image: AssetLink;
     shortDescription: EntryFields.Symbol;
     longDescription: EntryFields.RichText;
     price: EntryFields.Integer;

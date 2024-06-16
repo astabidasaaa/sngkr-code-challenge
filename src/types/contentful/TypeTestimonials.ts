@@ -5,10 +5,10 @@ type T = {
   // fields: Record<string, any>;
   fields: {
     name: EntryFields.Symbol;
-    image: Asset;
-    shortDescription: EntryFields.Symbol;
-    longDescription: EntryFields.RichText;
-    price: EntryFields.Integer;
+    // image: Asset;
+    // shortDescription: EntryFields.Symbol;
+    // longDescription: EntryFields.RichText;
+    // price: EntryFields.Integer;
     slug: EntryFields.Symbol;
   };
 };
