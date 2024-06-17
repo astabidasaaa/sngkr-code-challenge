@@ -5,6 +5,7 @@ import MainLogo from "./mainLogo";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import ModeToggle from "./themeToggle";
+import MobileMenu from "./mobileMenu";
 
 const DesktopNavbar = () => {
   const TOP_OFFSET = 200;
@@ -45,7 +46,7 @@ const DesktopNavbar = () => {
             } transition-all duration-500 fill-primary/60 stroke-primary/60`}
           />
         </Link>
-        <nav className="hidden sm:flex flex-row gap-16">
+        <nav className="hidden md:flex flex-row gap-16">
           <Button asChild variant="link" className="text-lg p-0">
             <Link href="/products">Products</Link>
           </Button>
@@ -57,6 +58,7 @@ const DesktopNavbar = () => {
           </Button>
           <ModeToggle />
         </nav>
+        <MobileMenu />
       </div>
     </header>
   );
