@@ -20,6 +20,7 @@ export const fetchProducts = async () => {
       order: ["sys.createdAt"],
       include: 10,
       select: [
+        "sys.id",
         "fields.name",
         "fields.image",
         "fields.shortDescription",
@@ -30,6 +31,7 @@ export const fetchProducts = async () => {
 
     const cleanedData = data.items.map((item) => {
       return {
+        id: item.sys.id,
         name: item.fields.name,
         image: item.fields.image,
         shortDescription: item.fields.shortDescription,
@@ -60,11 +62,11 @@ const ProductsSection = async () => {
                 className="pl-1 sm:basis-2/3 md:basis-3/5 lg:basis-5/12 xl:basis-[30%]"
                 key={product.slug}
               >
-                <Link href={`/products/${product.slug}`} className="group">
+                <Link href={`/products/${product.id}`} className="group">
                   <div className="relative w-[320px] md:w-[400px] h-[320px] md:h-[400px] flex justify-start items-end">
                     <div className="size-56 md:size-80 absolute top-0 right-0 z-0 select-none rounded-full overflow-hidden">
                       <Image
-                        src={`https:${product.image.fields.file.url}`}
+                        src={`https:${product?.image.fields?.file.url}`}
                         alt={`${product.name} image`}
                         width={360}
                         height={360}
