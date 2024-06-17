@@ -38,7 +38,6 @@ const TestimonialSection = async () => {
         </span>
         <div className="flex flex-col gap-16">
           {testimonials?.map((testimony) => {
-            console.log(testimony.product);
             return (
               <div
                 key={testimony.id}

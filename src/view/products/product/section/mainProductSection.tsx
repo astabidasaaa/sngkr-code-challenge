@@ -17,7 +17,6 @@ export const fetchProduct = async (id: string) => {
       content_type: "testimonials",
       // limit: 2,
       order: ["sys.createdAt"],
-      // select: ["sys.id", "fields.name", "fields.testimony", "fields.product"],
     });
 
     const filtered = testimonies_data.items.filter((item) => {
@@ -51,7 +50,6 @@ export const fetchProduct = async (id: string) => {
 const MainProductSection = async ({ id }: { id: string }) => {
   const product = await fetchProduct(id);
 
-  // console.log(product);
   return (
     <div className="relative w-full min-h-screen flex flex-col justify-center items-start px-4 sm:px-10 md:px-16 lg:px-20 py-28 md:pt-48 md:pb-32 overflow-hidden">
       <div className="flex flex-col lg:flex-row gap-16">
