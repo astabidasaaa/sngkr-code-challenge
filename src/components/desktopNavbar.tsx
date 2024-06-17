@@ -1,18 +1,18 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import MainLogo from "./mainLogo";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import ModeToggle from "./themeToggle";
 import MobileMenu from "./mobileMenu";
+import Cart from "./cart";
 
 const DesktopNavbar = () => {
   const TOP_OFFSET = 200;
   const [showBackground, setShowBackground] = useState<boolean>(false);
 
   useLayoutEffect(() => {
-    // console.log(window.scrollY);
     const handleScroll = () => {
       if (window.scrollY >= TOP_OFFSET) {
         setShowBackground(true);
@@ -46,19 +46,22 @@ const DesktopNavbar = () => {
             } transition-all duration-500 fill-primary/60 stroke-primary/60`}
           />
         </Link>
-        <nav className="hidden md:flex flex-row gap-16">
-          <Button asChild variant="link" className="text-lg p-0">
-            <Link href="/products">Products</Link>
-          </Button>
-          <Button asChild variant="link" className="text-lg p-0">
-            <Link href="/about-us">About</Link>
-          </Button>
-          <Button asChild variant="link" className="text-lg p-0">
-            <Link href="/teams">Teams</Link>
-          </Button>
-          <ModeToggle />
-        </nav>
-        <MobileMenu />
+        <div className="flex flex-row">
+          <nav className="hidden md:flex flex-row gap-16">
+            <Button asChild variant="link" className="text-lg p-0">
+              <Link href="/products">Products</Link>
+            </Button>
+            <Button asChild variant="link" className="text-lg p-0">
+              <Link href="/about-us">About</Link>
+            </Button>
+            <Button asChild variant="link" className="text-lg p-0">
+              <Link href="/teams">Teams</Link>
+            </Button>
+            <ModeToggle />
+          </nav>
+          <Cart />
+          <MobileMenu />
+        </div>
       </div>
     </header>
   );

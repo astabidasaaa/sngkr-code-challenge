@@ -1,23 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import MainLogo from "./mainLogo";
 import { VscMenu } from "react-icons/vsc";
 import ModeToggle from "./themeToggle";
+import { useCartContext } from "@/utils/useCartContext";
 
 const MobileMenu = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
+  const { isCartOpen } = useCartContext();
+
+  useEffect(() => {
+    if (isCartOpen) setMenuOpen(false);
+  }, [isCartOpen]);
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
+    <Sheet open={isMenuOpen} onOpenChange={setMenuOpen}>
       <SheetTrigger asChild>
         <Button
           size="icon"
           variant="ghost"
           className="md:hidden outline-none hover:bg-accent/10 text-secondary hover:text-accent-foreground focus:outline-none focus-visible:bg-accent/10"
         >
-          <VscMenu className="text-primary h-5 w-8" />
+          <VscMenu className="text-primary size-6" />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
@@ -29,7 +35,7 @@ const MobileMenu = () => {
           <Link
             href="/"
             className="flex items-center w-max gap-4 px-2.5 focus-visible:bg-accent/80 focus:outline-none"
-            onClick={() => setOpen(false)}
+            onClick={() => setMenuOpen(false)}
           >
             <MainLogo
               className={`w-24 h-12 fill-primary/60 stroke-primary/60`}
@@ -39,7 +45,7 @@ const MobileMenu = () => {
           <Link
             href="/products"
             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus-visible:bg-accent/80 focus:outline-none"
-            onClick={() => setOpen(false)}
+            onClick={() => setMenuOpen(false)}
           >
             <div className="text-sm font-semibold leading-none">Products</div>
             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -49,7 +55,7 @@ const MobileMenu = () => {
           <Link
             href="/about-us#"
             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus-visible:bg-accent/80 focus:outline-none"
-            onClick={() => setOpen(false)}
+            onClick={() => setMenuOpen(false)}
           >
             <div className="text-sm font-semibold leading-none">About</div>
             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -59,7 +65,7 @@ const MobileMenu = () => {
           <Link
             href="/teams#"
             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors focus-visible:bg-accent/80 focus:outline-none"
-            onClick={() => setOpen(false)}
+            onClick={() => setMenuOpen(false)}
           >
             <div className="text-sm font-semibold leading-none">Teams</div>
             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
