@@ -37,7 +37,7 @@ const DesktopNavbar = () => {
       } transition-all duration-300`}
     >
       <div className="w-full flex flex-row justify-between items-center py-2 sm:py-4">
-        <Link href="/">
+        <Link href="/" aria-label="Link to home page">
           <MainLogo
             className={`${
               showBackground
