@@ -57,6 +57,9 @@ const ProductsSection = async () => {
       <Carousel className="w-full" opts={{ dragFree: true }}>
         <CarouselContent className="ml-0 space-x-6">
           {products?.map((product) => {
+            const { fields }: { fields: { file: { url: string } } } =
+              product.image;
+
             return (
               <CarouselItem
                 className="pl-1 sm:basis-2/3 md:basis-3/5 lg:basis-5/12 xl:basis-[30%]"
@@ -66,7 +69,7 @@ const ProductsSection = async () => {
                   <div className="relative w-[320px] md:w-[400px] h-[320px] md:h-[400px] flex justify-start items-end">
                     <div className="size-56 md:size-80 absolute top-0 right-0 z-0 select-none rounded-full overflow-hidden">
                       <Image
-                        src={`https:${product?.image.fields?.file.url}`}
+                        src={`https:${fields.file.url}`}
                         alt={`${product.name} image`}
                         width={360}
                         height={360}

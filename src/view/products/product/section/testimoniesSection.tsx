@@ -10,7 +10,9 @@ export const fetchTestimonies = async (id: string) => {
     });
 
     const filtered = testimonies_data.items.filter((item) => {
-      return item.fields.product.sys.id === id;
+      const { sys }: { sys: { id: string } } = item.fields.product;
+
+      return sys.id === id;
     });
 
     return filtered;

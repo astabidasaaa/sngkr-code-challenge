@@ -47,6 +47,9 @@ const ProductListSection = async () => {
     <div className="relative flex flex-col justify-start items-center w-full px-4 sm:px-10 md:px-16 lg:px-20 py-28 md:py-36 gap-12 md:gap-20">
       <div className="flex flex-row flex-wrap justify-center md:justify-between gap-4 md:gap-24">
         {products?.map((product, index) => {
+          const { fields }: { fields: { file: { url: string } } } =
+            product.image;
+
           return (
             <Link
               key={product.slug}
@@ -56,7 +59,7 @@ const ProductListSection = async () => {
               <div className="relative w-full max-w-[360px] flex flex-col justify-start items-end gap-4">
                 <div className="relative w-full">
                   <Image
-                    src={`https:${product.image.fields.file.url}`}
+                    src={`https:${fields.file.url}`}
                     alt={`${product.name} image`}
                     width={360}
                     height={360}

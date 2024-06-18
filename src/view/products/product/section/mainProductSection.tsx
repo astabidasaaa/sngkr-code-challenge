@@ -37,12 +37,15 @@ export const fetchProduct = async (id: string) => {
 const MainProductSection = async ({ id }: { id: string }) => {
   const product = await fetchProduct(id);
 
+  const { fields }: { fields: { file: { url: string } } } =
+    product?.fields.image!;
+
   return (
     <div className="relative w-full min-h-screen flex flex-col justify-center items-start px-4 sm:px-10 md:px-16 lg:px-20 py-28 md:pt-48 md:pb-32 overflow-hidden">
       <div className="flex flex-col lg:flex-row gap-16">
         <div className="relative w-full">
           <Image
-            src={`https:${product?.fields.image?.fields.file.url}`}
+            src={`https:${fields.file.url}`}
             alt={`${product?.fields.name} image`}
             width={480}
             height={480}
