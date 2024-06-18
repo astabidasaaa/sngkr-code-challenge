@@ -16,7 +16,7 @@ const HeroSection = (props: Props) => {
         preload="auto"
         className="absolute top-0 left-0 block w-full h-full object-cover brightness-110 dark:brightness-50 z-0"
       >
-        <source src="/home/brush.mp4" type="video/mp4" />
+        <source src="/home/brush.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <div className="w-full z-10">

@@ -10,7 +10,7 @@ const VideoSection = () => {
         preload="auto"
         className="block w-full h-full object-cover z-0"
       >
-        <source src="/about-us/about-us-video-2.mp4" type="video/mp4" />
+        <source src="/about-us/about-us-video-2.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       <span className="text-sm font-lato font-light tracking-wide">
