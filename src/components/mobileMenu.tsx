@@ -31,7 +31,7 @@ const MobileMenu = () => {
         side="left"
         className="flex flex-col justify-between items-end sm:max-w-xs"
       >
-        <nav className="flex flex-col gap-6 text-lg font-medium">
+        <nav className="flex flex-col gap-6 w-full text-lg font-medium">
           <Link
             href="/"
             className="flex items-center w-max gap-4 px-2.5 focus-visible:bg-accent/80 focus:outline-none"
