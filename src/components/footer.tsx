@@ -26,6 +26,7 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Link to Instagram"
             >
               <FaInstagram className="size-6 text-primary/70" />
             </a>
@@ -35,6 +36,7 @@ const Footer = () => {
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Link to Youtube"
             >
               <FaYoutube className="size-6 text-primary/70" />
             </a>
