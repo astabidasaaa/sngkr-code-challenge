@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { Button } from "./ui/button";
 import MainLogo from "./mainLogo";
 import { VscMenu } from "react-icons/vsc";
@@ -30,7 +30,13 @@ const MobileMenu = () => {
       <SheetContent
         side="left"
         className="flex flex-col justify-between items-end sm:max-w-xs"
+        aria-describedby="Menu for mobile"
       >
+        <SheetTitle className="sr-only">
+          <span className="!font-light text-3xl md:text-4xl font-prata">
+            Menu
+          </span>
+        </SheetTitle>
         <nav className="flex flex-col gap-6 w-full text-lg font-medium">
           <Link
             href="/"

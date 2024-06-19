@@ -67,16 +67,17 @@ const Cart = () => {
       <SheetContent
         side="left"
         className="flex flex-col justify-between items-start w-full sm:max-w-lg overflow-auto"
+        aria-describedby="Shopping cart"
       >
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <div className="flex flex-col gap-10 w-full text-lg">
-            <SheetTitle>
-              <span className="!font-light text-3xl md:text-4xl font-prata">
-                Cart
-              </span>
-            </SheetTitle>
+        <div className="flex flex-col gap-10 w-full text-lg">
+          <SheetTitle>
+            <span className="!font-light text-3xl md:text-4xl font-prata">
+              Cart
+            </span>
+          </SheetTitle>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
             <ul className="font-lato flex flex-col gap-12 w-full">
               {cart.items.length > 0 &&
                 cart.items.map((item) => (
@@ -119,12 +120,12 @@ const Cart = () => {
                   </li>
                 ))}
             </ul>
-            <div className="flex flex-row justify-between items-start w-full">
-              <span className="font-lato font-bold">Total</span>
-              <span className="font-lato font-bold">IDR {cart.total}</span>
-            </div>
+          )}
+          <div className="flex flex-row justify-between items-start w-full">
+            <span className="font-lato font-bold">Total</span>
+            <span className="font-lato font-bold">IDR {cart.total}</span>
           </div>
-        )}
+        </div>
         <SheetFooter className="w-full">
           <Button onClick={handleReset}>Checkout</Button>
         </SheetFooter>
