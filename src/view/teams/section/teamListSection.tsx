@@ -54,17 +54,30 @@ const TeamListSection = async () => {
               key={`team-${index}`}
               className="group flex flex-col lg:flex-row justify-start items-start gap-10 md:gap-16"
             >
-              <Image
-                src={team.picture.large}
-                alt={`${team.name.first} image`}
-                width={480}
-                height={480}
-                placeholder={`data:image/svg+xml;base64,${toBase64(
-                  shimmer(480, 480)
-                )}`}
-                className="object-contain md:group-even:order-2"
-              />
-              <div className="flex flex-col max-w-screen-sm xl:max-w-screen-md md:group-odd:order-1 md:group-even:text-right">
+              <div className="flex flex-col justify-start items-start lg:group-even:items-end lg:group-even:order-2">
+                <Image
+                  src={`/teams${team_data[index].image.url}`}
+                  alt={`${team.name.first} image`}
+                  width={480}
+                  height={480}
+                  placeholder={`data:image/svg+xml;base64,${toBase64(
+                    shimmer(480, 480)
+                  )}`}
+                  className="min-w-60 min-h-60 object-contain"
+                />
+                <span className="text-sm font-lato font-light tracking-wide">
+                  Photo by{" "}
+                  <a
+                    href={team_data[index].image.by_url}
+                    target="_blank"
+                    className="underline hover:no-underline"
+                    rel="noopener"
+                  >
+                    {team_data[index].image.by}
+                  </a>
+                </span>
+              </div>
+              <div className="flex flex-col max-w-screen-sm xl:max-w-screen-md lg:group-odd:order-1 lg:group-even:text-right">
                 <h2>{`${team.name.first} ${team.name.last}`}</h2>
                 <span className="text-xl md:text-2xl font-light text-muted-foreground mb-4">
                   {team_data[index].position}
@@ -89,10 +102,11 @@ const TeamListSection = async () => {
         })}
       </div>
       <span className="w-full text-end text-sm font-lato font-light tracking-wide">
-        Team profile & image by{" "}
+        Team profile by{" "}
         <a
           href="https://randomuser.me/"
           target="_blank"
+          rel="noopener"
           className="underline hover:no-underline"
         >
           random user generator
